@@ -1,2 +1,5 @@
 diff_report_*.txt
 
+system_report_*.csv
+system_monitor.log
+system_monitor.pid
