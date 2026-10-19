@@ -106,7 +106,11 @@ elif [ "${1:-}" = "RUN" ]; then
         sleep "${MONITOR_INTERVAL:-600}"
     done
 
-else
+elif [ "$#" -eq 0 ]; then
     collect_metrics
-fi
 
+else
+    echo "Ошибка: неизвестная команда." >&2
+    echo "Использование: $0 {START|STOP|STATUS}" >&2
+    exit 1
+fi

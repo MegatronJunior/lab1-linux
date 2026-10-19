@@ -54,21 +54,21 @@ report_file="diff_report_${safe_branch1}_vs_${safe_branch2}.txt"
 
     echo
     echo "СТАТИСТИКА:"
-
     awk '
         $1 == "A" { added++ }
         $1 == "D" { deleted++ }
         $1 == "M" { modified++ }
+        $1 == "T" { type_changed++ }
         NF > 0 { total++ }
+
         END {
             printf "Всего измененных файлов: %d\n", total
             printf "Добавлено (A): %d\n", added
             printf "Удалено (D): %d\n", deleted
             printf "Изменено (M): %d\n", modified
+            printf "Изменен тип (T): %d\n", type_changed
         }
     ' "$diff_file"
-
 } > "$report_file"
-
 
 echo "Отчет сохранен: $report_file"

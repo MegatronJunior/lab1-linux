@@ -29,6 +29,7 @@ count_file="log_count.txt"
 grep -F -- "$search_word" "$log_file" > "$matches_file" || [ "$?" -eq 1 ]
 
 wc -l < "$matches_file" > "$count_file"
+echo "Найдено строк с совпадениями: $(cat "$count_file")"
 
 echo "Найденные строки сохранены в $matches_file"
 echo "Количество совпадений сохранено в $count_file"
