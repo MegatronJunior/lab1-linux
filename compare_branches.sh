@@ -34,7 +34,10 @@ diff_file="$temp_dir/diff.txt"
 git --no-pager -C "$temp_dir" diff --name-status --no-renames \
     compare-first compare-second > "$diff_file"
 
-report_file="diff_report_${branch1}_vs_${branch2}.txt"
+safe_branch1="${branch1//\//_}"
+safe_branch2="${branch2//\//_}"
+
+report_file="diff_report_${safe_branch1}_vs_${safe_branch2}.txt"
 
 {
     echo "Отчет о различиях между ветками"
