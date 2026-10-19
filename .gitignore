@@ -3,3 +3,7 @@ diff_report_*.txt
 system_report_*.csv
 system_monitor.log
 system_monitor.pid
+
+test.log
+log_matches.txt
+log_count.txt
